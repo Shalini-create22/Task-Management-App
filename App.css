@@ -1,0 +1,204 @@
+
+
+.main {
+  background-color: rgb(121, 231, 143);
+  color: rgb(39, 33, 33);
+  width: 70vw;
+  margin: 5% auto;
+  border-radius: 10px;
+  padding: 5%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.inputSection {
+  display: flex;
+
+  justify-content: center;
+  align-items: flex-end;
+  gap: 50px;
+  margin-bottom: 20px;
+  
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  min-width: 5px;
+}
+
+.inputGroup label {
+  
+  margin-bottom: 5px;
+  color: #121111;
+}
+
+.inputGroup input,
+.categorySelect,
+.prioritySelect {
+  width: 50%;
+  padding: 10px;
+  border-radius: 1px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+.categorySelect,
+.prioritySelect {
+  width: 150px;
+  background-color: rgb(71, 193, 101);
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.descriptionSection {
+  display: flex;
+  width: 30%;
+  flex-direction:column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.descriptionSection label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #121111;
+}
+
+.descriptionSection textarea {
+  width: 50%;
+  height: 80px;
+  gap: 50%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  resize: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+
+.btn {
+  background-color: rgb(38, 199, 56);
+  color: black;
+  display: block;
+  margin: auto;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #07930c;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.cardSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.taskCard {
+  background-color: rgb(224, 228, 225);
+  color: rgb(39, 33, 33);
+  
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.taskInfo {
+  flex: 3;
+}
+
+.taskInfo h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: rgb(29, 31, 32);
+}
+
+.taskDescription {
+  margin-top: 5px;
+  color: #333;
+}
+
+.taskRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+
+.taskCategory {
+  font-style: italic;
+  color: gray;
+}
+
+
+.priority {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+
+.priority.high {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.priority.medium {
+  background-color: #f9a825;
+  color: black;
+}
+
+.priority.low {
+  background-color: #4caf50;
+  color: white;
+}
+
+
+.deleteBtn {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.deleteBtn:hover {
+  background-color: #b71c1c;
+}
+
+
+.no-task {
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+  color: #333;
+}
