@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
 
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
@@ -10,28 +11,60 @@ const TaskList = () => {
     priority: '',
   });
 
-  
-  const addTask = () => {
+  const API_URL = "https://jsonplaceholder.typicode.com/todos";
+  useEffect(() => {
+    
+      const fetchTasks = async () => {
+
+        try {
+        const res = await axios.get("${https://jsonplaceholder.typicode.com/todos}_limit=5");
+        setTasks(res.data);
+        }catch (err) {
+          console.error("Error fetching tasks:",err);
+        }
+    };
+    fetchTasks();
+  },[]);
+
+
+
+
+  const addTask =  async () => {
     if (!newTask.title || !newTask.description) {
       alert('Please fill all fields!');
       return;
     }
+    try {
+      const res =  await axios.post("https://jsonplaceholder.typicode", {
+        title: newTask.title,
+        description: newTask.description,
+        category: newTask.category,
+        priority: newTask.priority,
+        completed: false,
+      });
 
-    const updatedTasks = [...tasks, { ...newTask, id: Date.now() }];
-    setTasks(updatedTasks);
 
     
+    setTasks([...tasks, res.data]);
     setNewTask({
       title: '',
       description: '',
       category: '',
       priority: '',
     });
+  } catch (err) {
+     console.error("Error adding task:", err);
+    }
   };
 
   
-  const deleteTask = (id) => {
+  const deleteTask = async  (id) => {
+    try {
+      await axios.delete("${https://jsonplaceholder.typicode}/${id}");
     setTasks(tasks.filter((task) => task.id !== id));
+      } catch (err) {
+        console.error("Error deleting task:", err);
+      }
   };
 
   return (
@@ -127,6 +160,7 @@ const TaskList = () => {
       </div>
     </div>
   );
-};
+}
 
 export default TaskList;
+
