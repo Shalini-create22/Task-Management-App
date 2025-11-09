@@ -59,6 +59,9 @@ const TaskList = () => {
 
   
   const deleteTask = async  (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this");
+    if  (!confirmDelete) return;
+
     try {
       await axios.delete("${https://jsonplaceholder.typicode}/${id}");
     setTasks(tasks.filter((task) => task.id !== id));
@@ -66,6 +69,21 @@ const TaskList = () => {
         console.error("Error deleting task:", err);
       }
   };
+  const toggleComplete = async (id) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+      );
+    setTasks(updatedTasks);
+    try {
+      const taskToUpdate = tasks.find((task) => task.id === id);
+      await axios.put("${https://jsonplaceholder.typicode}/${id}", {
+        completed: !taskToUpdate.completed,
+      });
+    } catch (err) {
+      console.error("Error updating task:", err);
+    }
+  };
+        
 
   return (
     <div className="taskListContainer">
@@ -163,4 +181,5 @@ const TaskList = () => {
 }
 
 export default TaskList;
+
 
